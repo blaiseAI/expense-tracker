@@ -1,0 +1,102 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+/*--------------------------------------------------------------*\
+    SITE NAV
+\*--------------------------------------------------------------*/
+.site-nav {
+  background: #2a3136;
+  /*Responsive font*/
+  font-size: calc(1.5em - 0vw);
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 3px 0 #6c63ff;
+}
+.get-started {
+  width: 400px;
+  background: #30373d;
+  border-radius: 5px;
+  display: flex;
+  color: #eaeaea;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0rem !important;
+  padding: 1rem;
+}
+.get-started img {
+  width: 1.3rem;
+}
+.get-started:hover {
+  background: #3c454d;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.get-started li {
+  margin-right: 10px;
+}
+
+/*--------------------------------------------------------------*\
+    MAIN
+\*--------------------------------------------------------------*/
+.welcome-card {
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+.welcome-card h1 {
+  font-size: calc(2em - 0vw);
+  color: #6c63ff;
+}
+.welcome-card img {
+  margin-top: 1rem;
+  max-width: 660px;
+}
+.question-card {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.question img {
+  width: 50px;
+}
+.question {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 360px;
+  color: #eaeaea;
+  box-shadow: 3px 5px 0px #a19cfd;
+  background: #6c63ff;
+}
+.answer {
+  width: 200px;
+  margin: 1rem auto;
+}
+.question-confirmation {
+  display: flex;
+  justify-content: space-between;
+}
+.yes-confirmation,
+.no-confirmation {
+  border: 2px solid #6c63ff;
+  border-radius: 5px;
+  padding: 0.6rem 2rem;
+  box-shadow: 3px 5px 0px #a19cfd;
+}
+
+.yes-confirmation:hover,
+.no-confirmation:hover {
+  cursor: pointer;
+  background: #6c63ff;
+  color: #eaeaea;
+  box-shadow: none;
+  transition: 0.5s;
+}
+/*--------------------------------------------------------------*\
+    SITE NAV
+\*--------------------------------------------------------------*/
