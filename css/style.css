@@ -36,6 +36,10 @@ body {
 .get-started li {
   margin-right: 10px;
 }
+a {
+  text-decoration: none;
+  color: #eaeaea;
+}
 
 /*--------------------------------------------------------------*\
     MAIN
