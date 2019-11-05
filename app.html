@@ -8,17 +8,94 @@
     <link rel="stylesheet" href="css/animate.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
     <title>💰 Expense Tracker</title>
   </head>
   <body>
-    <nav class="site-nav">
-      <a href="index.html" class="">
+    <nav class="site-nav nav-app">
+        <a href="index.html" class="get-started">
+            <!-- <img src="images/icons/plus-square-regular.svg" alt="" /> -->
+            &nbsp;
+            Transaction Tracker
+          </a>
+      <a href="index.html" class="get-started">
         <!-- <img src="images/icons/plus-square-regular.svg" alt="" /> -->
         &nbsp;
         Logout
       </a>
     </nav>
+    <main >
+      <section class="dashboard">
+        <div class="container">
+          <div class="dashboard-title">
+            <h2>Dashboard</h2>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="transaction-card shadow-lg">
+                <div class="hr-data">
+                  <div class="row">
+                    <div class="transaction-card-contents">
+                      <div class="col-12 transaction-card-title mb-2">Credit Amount</div>
+                      <div id="credit-amount" class="col-12 transaction-card-body">1000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="transaction-card shadow-lg">
+                <div class="hr-data">
+                  <div class="row">
+                    <div class="transaction-card-contents">
+                      <div class="col-12 transaction-card-title mb-2">Debit Amount</div>
+                      <div id="debit-amount" class="col-12 transaction-card-body">1000</div>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="transaction-card shadow-lg">
+                <div class="hr-data">
+                  <div class="row">
+                    <div class="transaction-card-contents">
+                      <div class="col-12 transaction-card-title mb-2">Balance Amount</div>
+                      <div id="debit-amount" class="col-12 transaction-card-body">1000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+      </section>
+      <section class="container">
+          <div class="row mt-3">
+            <div class="col-12">
+              <form action="">
+                  <fieldset class="col-md-12">    	
+                      <legend>Add Transaction</legend>
+                      <div class="panel panel-default">
+                        <div class="panel-body">
+                         <div class="row">
+                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Description"></div>
+                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Card "></div>
+                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Amount"></div>
+                          
+                         </div>
+                        </div>
+                      </div>
+                      
+                    </fieldset>		
+              </form>
+            </div>
+          </div>
+      </section>
+    </main>
+    <script src="js/countUp.min.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
 
-    <script src="js/app.js"></script>
   </body>
 </html>

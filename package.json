@@ -22,6 +22,7 @@
   "homepage": "https://github.com/blaiseAI/expense-tracker#readme",
   "dependencies": {
     "animate.css": "^3.7.2",
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "countup.js": "^2.0.4"
   }
 }
