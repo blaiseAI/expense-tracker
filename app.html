@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="css/animate.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.23.0/slimselect.min.css"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet">
     <title>💰 Expense Tracker</title>
   </head>
   <body>
     <nav class="site-nav nav-app">
-        <a href="index.html" class="get-started">
-            <!-- <img src="images/icons/plus-square-regular.svg" alt="" /> -->
-            &nbsp;
-            Transaction Tracker
-          </a>
+      <a href="index.html" class="get-started">
+        <!-- <img src="images/icons/plus-square-regular.svg" alt="" /> -->
+        &nbsp;
+        Transaction Tracker
+      </a>
       <a href="index.html" class="get-started">
         <!-- <img src="images/icons/plus-square-regular.svg" alt="" /> -->
         &nbsp;
         Logout
       </a>
     </nav>
-    <main >
+    <main>
       <section class="dashboard">
         <div class="container">
           <div class="dashboard-title">
@@ -37,8 +41,10 @@
                 <div class="hr-data">
                   <div class="row">
                     <div class="transaction-card-contents">
-                      <div class="col-12 transaction-card-title mb-2">Credit Amount</div>
-                      <div id="credit-amount" class="col-12 transaction-card-body">1000</div>
+                      <div class="col-12 transaction-card-title mb-2">Credit
+                        Amount</div>
+                      <div id="credit-amount" class="col-12
+                        transaction-card-body animated fadeInUp"></div>
                     </div>
                   </div>
                 </div>
@@ -49,11 +55,13 @@
                 <div class="hr-data">
                   <div class="row">
                     <div class="transaction-card-contents">
-                      <div class="col-12 transaction-card-title mb-2">Debit Amount</div>
-                      <div id="debit-amount" class="col-12 transaction-card-body">1000</div>
+                      <div class="col-12 transaction-card-title mb-2">Debit
+                        Amount</div>
+                      <div id="debit-amount" class="col-12 transaction-card-body
+                        animated fadeInUp"></div>
                     </div>
                   </div>
-                </div>  
+                </div>
               </div>
             </div>
             <div class="col-12 col-md-4">
@@ -61,41 +69,58 @@
                 <div class="hr-data">
                   <div class="row">
                     <div class="transaction-card-contents">
-                      <div class="col-12 transaction-card-title mb-2">Balance Amount</div>
-                      <div id="debit-amount" class="col-12 transaction-card-body">1000</div>
+                      <div class="col-12 transaction-card-title mb-2">Balance
+                        Amount</div>
+                      <div id="balance-amount" class="col-12
+                        transaction-card-body animated fadeInUp"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-           
+
           </div>
-      </section>
-      <section class="container">
+        </section>
+        <section class="container">
           <div class="row mt-3">
             <div class="col-12">
-              <form action="">
-                  <fieldset class="col-md-12">    	
-                      <legend>Add Transaction</legend>
-                      <div class="panel panel-default">
-                        <div class="panel-body">
-                         <div class="row">
-                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Description"></div>
-                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Card "></div>
-                           <div class="col-md-4"><input type="text" class="form-control" placeholder="Amount"></div>
-                          
-                         </div>
+              <form action="" id="transaction-form">
+                <fieldset class="col-md-12">
+                  <legend>Add Transaction 📉 </legend>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-md-3"><input type="text"
+                            id="description" class="form-control mt-1"
+                            placeholder="Description"></div>
+                        <div class="col-md-3 mt-1">
+                          <select name="" class="form-control" id="card-type">
+                            <option value="none">Select card type..</option>
+                            <option value="debit"> 💵Debit card</option>
+                            <option value="credit">💳Credit Card</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3 mt-1"><input type="text"
+                            id="amount" class="form-control"
+                            placeholder="Amount"></div>
+                        <div class="col-md-3 mt-1">
+                          <input type="submit" value="submit" class="btn
+                            btn-outline-primary
+                            submit-query">
                         </div>
                       </div>
-                      
-                    </fieldset>		
+                    </div>
+                  </div>
+
+                </fieldset>
               </form>
             </div>
           </div>
-      </section>
-    </main>
-    <script src="js/countUp.min.js" type="module"></script>
-    <script src="js/app.js" type="module"></script>
+        </section>
+      </main>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+      <script src="js/helper/countUp.min.js" type="module"></script>
+      <script src="js/app.js" type="module"></script>
 
-  </body>
-</html>
+    </body>
+  </html>
