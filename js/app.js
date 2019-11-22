@@ -2,7 +2,7 @@
  * Expense Tracker
  *
  */
-window.addEventListener('load', e => {
+window.addEventListener("load", e => {
   let transactions = [];
 
   // function myInformations() {
@@ -32,37 +32,34 @@ window.addEventListener('load', e => {
 
   // Grabbing the DOM
 
-  const dashboardCreditAmount = document.querySelector('#credit-amount');
-  const dashboardDeditAmount = document.querySelector('#debit-amount');
-  const dashboardBalanceAmount = document.querySelector('#balance-amount');
+  const dashboardCreditAmount = document.querySelector("#credit-amount");
+  const dashboardDeditAmount = document.querySelector("#debit-amount");
+  const dashboardBalanceAmount = document.querySelector("#balance-amount");
 
-  const debitAmount = 0;
-  const creditAmount = 0;
-  const balance = debitAmount + creditAmount;
-  dashboardCreditAmount.textContent = numeral(debitAmount).format('$0,0.00');
-  dashboardDeditAmount.textContent = numeral(creditAmount).format('$0,0.00');
-  dashboardBalanceAmount.textContent = numeral(balance).format('$0,0.00');
-
-  const descriptionInput = document.querySelector('#description');
-  const cardTypeSelection = document.querySelector('#card-type');
-  const amountInput = document.querySelector('#amount');
-  const formData = document.querySelector('#transaction-form');
-  let sumCredit = 0;
-  formData.addEventListener('submit', e => {
+  let debitAmount = 0;
+  let creditAmount = 0;
+  let balance = 0;
+  dashboardCreditAmount.textContent = numeral(debitAmount).format("$0,0.00");
+  dashboardDeditAmount.textContent = numeral(creditAmount).format("$0,0.00");
+  dashboardBalanceAmount.textContent = numeral(balance).format("$0,0.00");
+  const descriptionInput = document.querySelector("#description");
+  const cardTypeSelection = document.querySelector("#card-type");
+  let amountInput = document.querySelector("#amount");
+  const formData = document.querySelector("#transaction-form");
+  formData.addEventListener("submit", e => {
     e.preventDefault();
 
     let description = descriptionInput.value;
     let cardtype =
       cardTypeSelection.options[cardTypeSelection.selectedIndex].value;
     let amount = financial(amountInput.value);
-    dashboardCreditAmount.textContent = numeral(amount).format('$0,0.00');
     // Validate your data
-    if (description.trim() == '') {
-      console.error('Please provide a desc');
+    if (description.trim() == "") {
+      console.error("Please provide a desc");
     } else if (cardTypeSelection.selectedIndex === 0) {
-      console.error('Please Select a card');
+      console.error("Please Select a card");
     } else if (amount <= 0) {
-      console.error('Please a valid positive amount');
+      console.error("Please a valid positive amount");
     } else {
       // Add a new transaction
       let newTransation = {
@@ -75,57 +72,83 @@ window.addEventListener('load', e => {
       console.table(transactions);
       // copy of the array and use the spread operator to manupilate it
       const TransactionTempList = [...transactions];
-      const TransactionType = TransactionTempList.filter(
-        (transaction, index) => {
-          if (transaction.type === 'credit') {
-            return transaction;
-          }
-        }
+
+      // Function to calculte the total credit amoount
+      creditAmount = CalculatesumCredit(TransactionTempList);
+      // Function to calculte the total debit amoount
+      debitAmount = CalculatesumDebit(TransactionTempList);
+      // calculate the total
+      balance = debitAmount + creditAmount;
+      // Set the dashboard Creditamount
+      dashboardCreditAmount.textContent = numeral(creditAmount).format(
+        "$0,0.00"
       );
-      TransactionType.forEach(element => {
-        let credit = element.amount;
-        let x = [10, 20, 1, 3, 5];
-        // console.log(Math.min(...x));
-        const arrMax = x => Math.max(...x);
-        console.log(arrMax);
-        //const arrSum = credit => credit.reduce((a, b) => a + b, 0);
-        //console.log(arrSum);
-        //console.log(Math.min(credit));
-      });
+      dashboardDeditAmount.textContent = numeral(debitAmount).format("$0,0.00");
+      dashboardBalanceAmount.textContent = numeral(balance).format("$0,0.00");
     }
   });
 
+  /**
+   * All the Functions are below
+   *
+   * 1) AddToExpenses()
+   * 2) RemoveFromExpenses()
+   * 3) CreateExpenseDOMItems
+   * 4) CalculateSumDebit
+   * 5) CalculateSumCredit
+   * 6) Financial()
+   *
+   *
+   */
+
+  /**
+   * AddToExpense()
+   */
+
+  /**
+   * RemoveFromExpenses()
+   * */
+
+  /**
+   * CreateExpenseDOMItems()
+   */
+    
+
+  /**
+   * CalculateSumDebit
+   */
+  function CalculatesumDebit(TransactionTempList) {
+    const TransactionTypeCredit = TransactionTempList.filter(
+      (transaction, index) => {
+        if (transaction.type === "debit") {
+          return transaction;
+        }
+      }
+    );
+    let sum = 0;
+    TransactionTypeCredit.forEach(element => {
+      sum = sum + Number.parseFloat(element.amount);
+    });
+    return sum;
+  }//EOCalculateSumDebit
+
+
+
+  function CalculatesumCredit(TransactionTempList) {
+    const TransactionTypeCredit = TransactionTempList.filter(
+      (transaction, index) => {
+        if (transaction.type === "credit") {
+          return transaction;
+        }
+      }
+    );
+    let sum = 0;
+    TransactionTypeCredit.forEach(element => {
+      sum = sum + Number.parseFloat(element.amount);
+    });
+    return sum;
+  }
   function financial(x) {
     return Number.parseFloat(x).toFixed(2);
   }
-
-  // Form Validation Function
-  // function formValidator(e) {
-  //   // validation used to check if a card type is selected
-  //   let validated = 0;
-  //   let transactionObject = {};
-  //   let transactionErrorObject = {};
-
-  //   if (cardTypeSelection.selectedIndex == 0) {
-  //     transactionErrorObject.item =
-  //       cardTypeSelection.options[cardTypeSelection.selectedIndex].value;
-  //     transactionErrorObject.message = 'Please select a card type';
-  //     console.log(transactionErrorObject.message);
-  //     validated++;
-  //   }
-  //   else if (e.target.description.value.trim() === '') {
-  //     transactionErrorObject.message = 'Please provide a description';
-  //   }
-  //   else if (e.target.amount.value.trim() < 0) {
-  //     transactionErrorObject.message = 'Please provide a description';
-  //   } else {
-  //     transactionObject.cardType =
-  //       cardTypeSelection.options[cardTypeSelection.selectedIndex].value;
-  //   }
-
-  //   if (validated === 0) {
-  //     transactionObject.valid = true;
-  //     return transactionObject;
-  //   }
-  // }
 });

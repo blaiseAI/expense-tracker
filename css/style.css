@@ -1,6 +1,6 @@
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 /*--------------------------------------------------------------*\
     SITE NAV
@@ -89,6 +89,7 @@ a {
 .no-confirmation {
   border: 2px solid #6c63ff;
   border-radius: 5px;
+  transition: 0.5s;
   padding: 0.6rem 2rem;
   box-shadow: 3px 5px 0px #a19cfd;
 }
@@ -121,7 +122,7 @@ a {
 .dashboard {
   background: #eaeaea;
   padding: 1rem 1.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .dashboard-title h2 {
   font-weight: bold;
@@ -187,4 +188,35 @@ legend {
   background: #6c63ff;
   transition: 0.5s;
   box-shadow: none;
+}
+
+/*
+* Error Message UI
+*/
+.error-message {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  color: #da6a52;
+  transition: 1s;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+}
+.error-message p {
+  margin-top: 15px;
+}
+.error-message img {
+  width: 2rem;
+
+  margin-right: 5px;
+}
+
+.remove img {
+  width: 1.5rem;
+}
+
+.remove img:hover {
+  cursor: pointer;
 }
