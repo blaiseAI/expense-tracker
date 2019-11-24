@@ -12,6 +12,7 @@ body {
   padding: 0.2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   box-shadow: 0 0 3px 0 #6c63ff;
 }
 .get-started {
@@ -22,6 +23,7 @@ body {
   color: #eaeaea;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
   margin-bottom: 0rem !important;
   padding: 1rem;
 }
@@ -90,6 +92,7 @@ a {
   border: 2px solid #6c63ff;
   border-radius: 5px;
   transition: 0.5s;
+  color: #2a3136 !important;
   padding: 0.6rem 2rem;
   box-shadow: 3px 5px 0px #a19cfd;
 }
@@ -113,11 +116,13 @@ a {
 }
 .nav-app a {
   background: none;
+  transition: 0.5s;
 }
 .nav-app a:hover {
   background: none;
   text-decoration: none;
   color: #6c63ff;
+  transition: 0.5s;
 }
 .dashboard {
   background: #eaeaea;
@@ -157,7 +162,7 @@ Creating a transaction card
 Custom Fieldset
 */
 fieldset {
-  border: 1px solid #ddd !important;
+  border: 1px solid #6c63ff !important;
   margin: 0;
   xmin-width: 0;
   padding: 10px;
@@ -172,12 +177,64 @@ legend {
   font-weight: bold;
   margin-bottom: 0px;
   width: 35%;
-  border: 1px solid #ddd;
+  border: 1px solid #6c63ff;
   border-radius: 4px;
   padding: 5px 5px 5px 10px;
   background-color: #ffffff;
 }
 
+input,
+select {
+  border: none !important;
+}
+input:focsus {
+  outline: none !important;
+}
+select {
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* arrows */
+select.classic {
+  background-image: linear-gradient(45deg, transparent 50%, #a19cfd 50%),
+    linear-gradient(135deg, #a19cfd 50%, transparent 50%),
+    linear-gradient(to right, #6c63ff, #6c63ff);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+.btn {
+  border: 2px solid #6c63ff !important;
+}
 .submit-query {
   border: 2px solid #6c63ff;
   box-shadow: 3px 5px 0px #a19cfd;
@@ -203,6 +260,7 @@ legend {
   transition: 1s;
   padding: 0.5rem 1.5rem;
   font-weight: bold;
+  box-shadow: 0 0 3px 0 #6c63ff !important;
 }
 .error-message p {
   margin-top: 15px;
@@ -212,11 +270,40 @@ legend {
 
   margin-right: 5px;
 }
-
 .remove img {
-  width: 1.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  transition: 0.5s;
+  /* border-radius: 10px; */
 }
 
 .remove img:hover {
   cursor: pointer;
+  border: 1px solid #6c63ff;
+  transition: 0.5s;
+  border-radius: 10px;
+  /* transform: rotate(360deg); */
+}
+.half-circle {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  background-color: #a19cfd;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border: 10px solid #6c63ff;
+  border-top: 0;
+  transition: 1s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.half-circle img {
+  align-self: flex-end;
+}
+.half-circle:hover {
+  transition: 0.5s;
+  transform: rotate(360deg);
 }

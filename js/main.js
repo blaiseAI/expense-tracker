@@ -45,13 +45,13 @@ window.addEventListener("load", e => {
     transactions.push(ValidExpenseItem);
     // copy of the array and use the spread operator to manupilate it
     const TransactionTempList = [...transactions];
-    CalculateSumOfDebits(TransactionTempList);
     // end of code to be Edited
 
     if (ValidExpenseItem.valid) {
       // Pass the object to the htmlString and use the template literal
       const htmlString = createDOMExpenseItem(ValidExpenseItem);
       ConvertingStringToNode(htmlString);
+      CalculateSumOfDebits(TransactionTempList);
     }
   });
 
