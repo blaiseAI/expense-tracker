@@ -271,18 +271,32 @@ select.classic:focus {
   margin-right: 5px;
 }
 .remove img {
-  width: 2.5rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+  width: 1.4rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  border: 1px solid #000;
   transition: 0.5s;
   /* border-radius: 10px; */
 }
 
+tbody {
+  color: #fff;
+}
+table .table-hover {
+  border: none !important;
+  transition: 0.5s !important;
+}
+table .table-hover:hover {
+  transition: 0.5s !important;
+}
+tr {
+  border: none;
+}
 .remove img:hover {
   cursor: pointer;
   border: 1px solid #6c63ff;
   transition: 0.5s;
-  border-radius: 10px;
+  border-radius: 5px;
   /* transform: rotate(360deg); */
 }
 .half-circle {
@@ -300,6 +314,12 @@ select.classic:focus {
   box-sizing: border-box;
 }
 
+.debit {
+  background: #a19cfd;
+}
+.credit {
+  background: #6c63ff;
+}
 .half-circle img {
   align-self: flex-end;
 }
