@@ -29,9 +29,6 @@ window.addEventListener("load", e => {
   // Show my information in the console
   // myInformations();
   // end of my information
-
-  // Grabbing the DOM
-
   const dashboardCreditAmount = document.querySelector("#credit-amount");
   const dashboardDeditAmount = document.querySelector("#debit-amount");
   const dashboardBalanceAmount = document.querySelector("#balance-amount");
@@ -87,35 +84,6 @@ window.addEventListener("load", e => {
       dashboardBalanceAmount.textContent = numeral(balance).format("$0,0.00");
     }
   });
-
-  /**
-   * All the Functions are below
-   *
-   * 1) AddToExpenses()
-   * 2) RemoveFromExpenses()
-   * 3) CreateExpenseDOMItems
-   * 4) CalculateSumDebit
-   * 5) CalculateSumCredit
-   * 6) Financial()
-   *
-   *
-   */
-
-  /**
-   * AddToExpense()
-   */
-
-  /**
-   * RemoveFromExpenses()
-   * */
-
-  /**
-   * CreateExpenseDOMItems()
-   */
-
-  /**
-   * CalculateSumDebit
-   */
   function CalculatesumDebit(TransactionTempList) {
     const TransactionTypeCredit = TransactionTempList.filter(
       (transaction, index) => {
