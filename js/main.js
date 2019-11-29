@@ -12,7 +12,6 @@ window.addEventListener("load", e => {
   const dashboardCreditAmount = document.querySelector("#credit-amount");
   const dashboardDeditAmount = document.querySelector("#debit-amount");
   const dashboardBalanceAmount = document.querySelector("#balance-amount");
-
   // Dataset for all the transactions
   let transactions = [];
   // Dashboard credit, debit, balance Initialization
@@ -33,10 +32,8 @@ window.addEventListener("load", e => {
 
   let SumOfDebits = 0;
   let SumOfCredits = 0;
-
   expenseForm.addEventListener("submit", e => {
     e.preventDefault();
-
     // validate the form data
     FormValidation(expenseForm);
     const ValidExpenseItem = FormValidation(e.target);
@@ -48,7 +45,9 @@ window.addEventListener("load", e => {
       // Pass the object to the htmlString and use the template literal
       const htmlString = createDOMExpenseItem(ValidExpenseItem);
       ConvertingStringToNode(htmlString);
-
+      // clear the form
+      e.target.reset();
+      expenseForm.elements.description.focus();
       SumOfDebits = CalculateSumOfDebits(transactions);
       SumOfCredits = CalculateSumOfCredits(transactions);
       dashboardUpdate(SumOfCredits, SumOfDebits);
@@ -118,13 +117,8 @@ window.addEventListener("load", e => {
    * RemoveExpense function
    */
   function removeExpenseItem(e) {
-    let removedItem = [];
     let expenseToRemove = expenseDisplay.children[e.target.dataset.index];
     let indexRemoveItem = e.target.dataset.index;
-    // const expenseAmountToRemove = expenseToRemove.querySelector(
-    //   ".expenseAmount"
-    // ).textContent;
-
     const expenseTypeToRemove = expenseToRemove.querySelector(".cardType")
       .textContent;
 
@@ -159,6 +153,7 @@ window.addEventListener("load", e => {
           <td class="expenseAmount">${numeral(newExpense.amount).format(
             "$0,0.00"
           )} </td>
+          <td class="date-time-stamp">${newExpense.date}</td>
           <td class="remove">${removeIcon}</td>
       </tr>
     <table>
@@ -199,7 +194,13 @@ window.addEventListener("load", e => {
   function FormValidation(expenseForm) {
     const ExpenseItem = {};
     let errorCount = 0;
-
+    let today = new Date();
+    let date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
     if (expenseForm.elements.description.value.trim() !== "") {
       ExpenseItem.description = expenseForm.elements.description.value;
       ErrorMessageSummary.style.display = "none";
@@ -236,6 +237,7 @@ window.addEventListener("load", e => {
 
     if (errorCount === 0) {
       ExpenseItem.valid = true;
+      ExpenseItem.date = date;
       return ExpenseItem;
     }
     if (errorCount != 0) {

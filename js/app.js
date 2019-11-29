@@ -112,7 +112,6 @@ window.addEventListener("load", e => {
   /**
    * CreateExpenseDOMItems()
    */
-    
 
   /**
    * CalculateSumDebit
@@ -130,9 +129,7 @@ window.addEventListener("load", e => {
       sum = sum + Number.parseFloat(element.amount);
     });
     return sum;
-  }//EOCalculateSumDebit
-
-
+  } //EOCalculateSumDebit
 
   function CalculatesumCredit(TransactionTempList) {
     const TransactionTypeCredit = TransactionTempList.filter(
