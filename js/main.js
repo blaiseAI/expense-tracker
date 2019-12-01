@@ -122,22 +122,25 @@ window.addEventListener("load", e => {
     const expenseTypeToRemove = expenseToRemove.querySelector(".cardType")
       .textContent;
 
-    transactions.splice(indexRemoveItem, 1);
-    let RemovedCalculatedDebits = CalculateSumOfDebits(transactions);
-    let RemovedCalculatedCredits = CalculateSumOfCredits(transactions);
-    dashboardUpdate(RemovedCalculatedCredits, RemovedCalculatedDebits);
-    // problem is everytime you remove  you will have to reset dataindex
-    expenseDisplay.removeChild(expenseToRemove);
-    // solution dataindex
-    // get a node list from itemDisplay querySelectAll() -> Nodelist
-    // reset all the dataindex
-    let resetElements = expenseDisplay.querySelectorAll("tr");
-    resetElements.forEach((element, index) => {
-      const image = element.querySelector("img");
-      // resets and assigns the indexes again
-      image.dataset.index = index;
-    });
-    return removedItem;
+    let confirmation = confirm("Are you sure delete ");
+    if (confirmation) {
+      transactions.splice(indexRemoveItem, 1);
+      let RemovedCalculatedDebits = CalculateSumOfDebits(transactions);
+      let RemovedCalculatedCredits = CalculateSumOfCredits(transactions);
+      dashboardUpdate(RemovedCalculatedCredits, RemovedCalculatedDebits);
+      // problem is everytime you remove  you will have to reset dataindex
+      expenseDisplay.removeChild(expenseToRemove);
+      // solution dataindex
+      // get a node list from itemDisplay querySelectAll() -> Nodelist
+      // reset all the dataindex
+      let resetElements = expenseDisplay.querySelectorAll("tr");
+      resetElements.forEach((element, index) => {
+        const image = element.querySelector("img");
+        // resets and assigns the indexes again
+        image.dataset.index = index;
+      });
+      return removedItem;
+    }
   }
 
   /**
