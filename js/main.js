@@ -122,7 +122,11 @@ window.addEventListener("load", e => {
     const expenseTypeToRemove = expenseToRemove.querySelector(".cardType")
       .textContent;
 
-    let confirmation = confirm("Are you sure delete ");
+    let confirmation = confirm(
+      `Are sure you want to remove expense ${
+        expenseToRemove.querySelector(".ExpenseDescription").textContent
+      }`
+    );
     if (confirmation) {
       transactions.splice(indexRemoveItem, 1);
       let RemovedCalculatedDebits = CalculateSumOfDebits(transactions);
